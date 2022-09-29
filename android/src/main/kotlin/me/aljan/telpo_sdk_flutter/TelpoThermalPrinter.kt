@@ -43,7 +43,7 @@ class TelpoThermalPrinter(activity: TelpoSdkFlutterPlugin) {
 
     init {
         mUsbThermalPrinter = UsbThermalPrinter(context)
-        utils = Utils(context)
+        utils = Utils()
     }
 
     @SuppressLint("HandlerLeak")
