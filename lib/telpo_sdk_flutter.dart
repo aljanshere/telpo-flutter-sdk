@@ -1,8 +1,8 @@
+library telpo_sdk_flutter;
 
-import 'telpo_sdk_flutter_platform_interface.dart';
-
-class TelpoSdkFlutter {
-  Future<String?> getPlatformVersion() {
-    return TelpoSdkFlutterPlatform.instance.getPlatformVersion();
-  }
-}
+export 'src/telpo_sdk.dart';
+export 'src/model/print_data.dart';
+export 'src/model/print_text.dart';
+export 'src/model/walkpaper.dart';
+export 'src/utils/enums.dart';
+export 'src/utils/extensions.dart';

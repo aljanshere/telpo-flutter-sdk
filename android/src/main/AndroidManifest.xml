@@ -1,3 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="me.aljan.telpo_sdk_flutter">
+    package="me.aljan.telpo_sdk_flutter">
+
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
 </manifest>
