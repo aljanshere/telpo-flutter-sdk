@@ -1,15 +1,21 @@
 # telpo_sdk_flutter
+A Flutter plugin for handling connection and communication with Telpo thermal printer devices.
 
-A new Flutter Plugin project.
+<img src="https://raw.githubusercontent.com/al-ventures/telpo-sdk-flutter/master/_external/cover.png" alt="cover" />
 
-## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+## 🕹️ Usage
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To get started, create a `TelpoController`:
 
+```dart
+final _telpoController = TelpoController();
+```
+
+## 🐞 Bugs/Requests
+
+If you encounter any problems please open an issue. If you feel the library is missing a feature, please raise a ticket on Github and we'll look into it. Pull request are welcome.
+
+## 📃 License
+
+MIT License
