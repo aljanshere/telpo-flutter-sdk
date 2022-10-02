@@ -1,8 +1,8 @@
 library telpo_sdk_flutter;
 
-export 'src/telpo_sdk.dart';
-export 'src/model/print_data.dart';
-export 'src/model/print_text.dart';
-export 'src/model/walkpaper.dart';
-export 'src/utils/enums.dart';
-export 'src/utils/extensions.dart';
+export 'src/telpo_controller.dart';
+export 'src/models/print_data.dart';
+export 'src/models/print_text.dart';
+export 'src/models/walk_paper.dart';
+export 'src/utilities/enums.dart';
+export 'src/utilities/extensions.dart';

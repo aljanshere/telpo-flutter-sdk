@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _telpoStatus = 'Unknown';
-  final _telpoSdkFlutterPlugin = TelpoSdkFlutter();
+  final _telpoSdkFlutterPlugin = TelpoController();
 
   @override
   void initState() {
@@ -31,8 +31,7 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      telpoStatus =
-          await _telpoSdkFlutterPlugin.checkStatus() ?? 'Unknown status';
+      telpoStatus = await _telpoSdkFlutterPlugin.checkStatus() ?? 'Unknown status';
     } on PlatformException {
       telpoStatus = 'Failed to get status.';
     }
