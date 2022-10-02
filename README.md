@@ -1,7 +1,7 @@
-# telpo_sdk_flutter
+# telpo_flutter_sdk
 A Flutter plugin for handling connection and communication with Telpo thermal printer devices.
 
-<img src="https://raw.githubusercontent.com/al-ventures/telpo-sdk-flutter/master/_external/cover.png" alt="cover" />
+<img src="https://raw.githubusercontent.com/al-ventures/telpo-flutter-sdk/master/_external/cover.png" alt="cover" />
 
 
 ## 🕹️ Usage

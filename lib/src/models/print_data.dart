@@ -1,4 +1,4 @@
-import 'package:telpo_sdk_flutter/telpo_sdk_flutter.dart';
+import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
 class PrintData<T> {
   final T data;
@@ -18,13 +18,13 @@ class PrintData<T> {
   });
 
   Map<String, dynamic> toJson() => {
-    "data": data,
-    "width": width,
-    "height": height,
-    "alignment": alignment?.name,
-    "type": type.name,
-    "fontSize": fontSize?.name,
-  };
+        "data": data,
+        "width": width,
+        "height": height,
+        "alignment": alignment?.name,
+        "type": type.name,
+        "fontSize": fontSize?.name,
+      };
 
   @override
   String toString() {

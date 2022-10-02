@@ -135,7 +135,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
-  telpo_sdk_flutter:
+  telpo_flutter_sdk:
     dependency: "direct main"
     description:
       path: ".."

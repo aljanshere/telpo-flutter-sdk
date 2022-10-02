@@ -1,4 +1,4 @@
-package me.aljan.telpo_sdk_flutter
+package me.aljan.telpo_flutter_sdk
 
 import android.app.Activity
 import android.content.BroadcastReceiver
@@ -21,7 +21,7 @@ import io.flutter.plugin.common.MethodChannel.Result
 class TelpoSdkFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private val TAG = "TelpoSdkFlutterPlugin"
     private lateinit var channel: MethodChannel
-    private val channelId = "me.aljan.telpo_sdk_flutter/telpo"
+    private val channelId = "me.aljan.telpo_flutter_sdk/telpo"
     private var lowBattery = false
     private var _isConnected = false
     lateinit var context: Context
