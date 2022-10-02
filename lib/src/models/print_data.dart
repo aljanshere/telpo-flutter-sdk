@@ -17,17 +17,25 @@ class PrintData<T> {
     this.fontSize,
   });
 
-  Map<String, dynamic> toJson() => {
-        "data": data,
-        "width": width,
-        "height": height,
-        "alignment": alignment?.name,
-        "type": type.name,
-        "fontSize": fontSize?.name,
-      };
+  Map<String, dynamic> toJson() {
+    return {
+      "data": data,
+      "width": width,
+      "height": height,
+      "alignment": alignment?.name,
+      "type": type.name,
+      "fontSize": fontSize?.name,
+    };
+  }
 
   @override
   String toString() {
-    return 'PrintModel(data: $data, width: $width, height: $height, alignment: $alignment, type: $type, fontSize: $fontSize)';
+    return '''PrintModel(
+      data: $data, 
+      width: $width, 
+      height: $height, 
+      alignment: $alignment, 
+      type: $type, 
+      fontSize: $fontSize)''';
   }
 }

@@ -27,6 +27,11 @@ class TelpoController {
   }
 
   Future<bool?> print(List<PrintData> data) {
-    return _platform.invokeMethod('print', {"data": data.toJson()});
+    return _platform.invokeMethod(
+      'print',
+      {
+        "data": data.toJson(),
+      },
+    );
   }
 }
