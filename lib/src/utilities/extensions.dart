@@ -1,4 +1,4 @@
-import 'package:telpo_sdk_flutter/telpo_sdk_flutter.dart';
+import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
 extension ListX on List<PrintData> {
   List<Map<String, dynamic>?> toJson() {

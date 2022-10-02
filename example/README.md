@@ -1,6 +1,6 @@
-# telpo_sdk_flutter_example
+# telpo_flutter_sdk_example
 
-Demonstrates how to use the telpo_sdk_flutter plugin.
+Demonstrates how to use the telpo_flutter_sdk plugin.
 
 ## Getting Started
 

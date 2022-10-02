@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
-import 'package:telpo_sdk_flutter/telpo_sdk_flutter.dart';
+import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
 class TelpoController {
   late MethodChannel _platform;
 
-  final String _channelName = 'me.aljan.telpo_sdk_flutter/telpo';
+  final String _channelName = 'me.aljan.telpo_flutter_sdk/telpo';
 
   TelpoController() {
     _platform = MethodChannel(_channelName);

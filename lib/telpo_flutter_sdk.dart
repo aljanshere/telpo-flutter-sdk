@@ -1,4 +1,4 @@
-library telpo_sdk_flutter;
+library telpo_flutter_sdk;
 
 export 'src/telpo_controller.dart';
 export 'src/models/print_data.dart';

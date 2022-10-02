@@ -1,4 +1,4 @@
-package me.aljan.telpo_sdk_flutter
+package me.aljan.telpo_flutter_sdk
 
 import android.annotation.SuppressLint
 import android.content.Context
