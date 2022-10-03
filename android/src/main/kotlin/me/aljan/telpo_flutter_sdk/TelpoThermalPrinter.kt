@@ -8,7 +8,7 @@ import android.os.Message
 import android.util.Log
 import com.telpo.tps550.api.printer.UsbThermalPrinter
 
-class TelpoThermalPrinter(activity: TelpoSdkFlutterPlugin) {
+class TelpoThermalPrinter(activity: TelpoFlutterSdkPlugin) {
     private val TAG = "TelpoThermalPrinter"
     private var mUsbThermalPrinter: UsbThermalPrinter? = null
     private var utils: Utils
