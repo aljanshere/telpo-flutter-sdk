@@ -17,9 +17,9 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** TelpoSdkFlutterPlugin */
-class TelpoSdkFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
-    private val TAG = "TelpoSdkFlutterPlugin"
+/** TelpoFlutterSdkPlugin */
+class TelpoFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+    private val TAG = "TelpoFlutterSdkPlugin"
     private lateinit var channel: MethodChannel
     private val channelId = "me.aljan.telpo_flutter_sdk/telpo"
     private var lowBattery = false
@@ -34,7 +34,7 @@ class TelpoSdkFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         channel.setMethodCallHandler(this)
         binding = flutterPluginBinding
         context = flutterPluginBinding.applicationContext
-        telpoThermalPrinter = TelpoThermalPrinter(this@TelpoSdkFlutterPlugin)
+        telpoThermalPrinter = TelpoThermalPrinter(this@TelpoFlutterSdkPlugin)
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -95,15 +95,13 @@ class TelpoSdkFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         activity = binding.activity
     }
 
-    override fun onDetachedFromActivityForConfigChanges() {
-    }
+    override fun onDetachedFromActivityForConfigChanges() {}
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
         activity = binding.activity
     }
 
-    override fun onDetachedFromActivity() {
-    }
+    override fun onDetachedFromActivity() {}
 
     private val printReceive: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
