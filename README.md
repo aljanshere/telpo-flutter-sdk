@@ -9,10 +9,10 @@ While we were working on our MASHINPAY solution we purchased Telpo thermal print
 
 ## 🕹️ Usage
 
-To get started, create a `TelpoController`:
+To get started, create a `TelpoFlutterChannel`:
 
 ```dart
-final _telpoController = TelpoController();
+final _TelpoFlutterChannel = TelpoFlutterChannel();
 ```
 
 ## 🐞 Bugs/Requests

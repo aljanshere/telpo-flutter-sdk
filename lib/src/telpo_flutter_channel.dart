@@ -1,16 +1,16 @@
 import 'package:flutter/services.dart';
 import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
-class TelpoController {
+class TelpoFlutterChannel {
   late MethodChannel _platform;
 
   final String _channelName = 'me.aljan.telpo_flutter_sdk/telpo';
 
-  TelpoController() {
+  TelpoFlutterChannel() {
     _platform = MethodChannel(_channelName);
   }
 
-  // TODO: aljan what are the statuses?
+  // TODO: use Enum
   Future<String?> checkStatus() {
     return _platform.invokeMethod('checkStatus');
   }

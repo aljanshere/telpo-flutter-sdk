@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _telpoStatus = 'Unknown';
-  final _telpoSdkFlutterPlugin = TelpoController();
+  final _telpoSdkFlutterPlugin = TelpoFlutterChannel();
 
   @override
   void initState() {
