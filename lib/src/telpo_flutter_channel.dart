@@ -1,18 +1,36 @@
 import 'package:flutter/services.dart';
 import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
-class TelpoController {
+class TelpoFlutterChannel {
   late MethodChannel _platform;
 
   final String _channelName = 'me.aljan.telpo_flutter_sdk/telpo';
 
-  TelpoController() {
+  TelpoFlutterChannel() {
     _platform = MethodChannel(_channelName);
   }
 
-  // TODO: aljan what are the statuses?
-  Future<String?> checkStatus() {
-    return _platform.invokeMethod('checkStatus');
+  /// Returns an [Enum] of type [TelpoStatus] indicating current status of
+  /// underlying Telpo Device.
+  Future<TelpoStatus> checkStatus() async {
+    try {
+      final status = await _platform.invokeMethod('checkStatus');
+
+      switch (status) {
+        case 'STATUS_OK':
+          return TelpoStatus.ok;
+        case 'STATUS_NO_PAPER':
+          return TelpoStatus.noPaper;
+        case 'STATUS_OVER_FLOW':
+          return TelpoStatus.cacheIsFull;
+
+        case 'STATUS_OVER_UNKNOWN':
+        default:
+          return TelpoStatus.unknown;
+      }
+    } catch (_) {
+      return TelpoStatus.unknown;
+    }
   }
 
   /// Connect with underlying Telpo device if any.

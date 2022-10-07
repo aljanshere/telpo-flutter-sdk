@@ -20,3 +20,12 @@ enum PrintedFontSize {
   size54,
   size64,
 }
+
+// TODO: describe each status
+enum TelpoStatus {
+  ok,
+  noPaper,
+  overHeat,
+  cacheIsFull,
+  unknown,
+}
