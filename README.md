@@ -19,6 +19,12 @@ To get started, create a `TelpoFlutterChannel`:
 final _telpoFlutterChannel =  TelpoFlutterChannel();
 ```
 
+
+## 🤓 Contributors
+
+<a  href="https://github.com/al-ventures/telpo-flutter-sdk/graphs/contributors"> <img  src="https://github.com/kamranbekirovyz.png" height="100"> </a><a  href="https://github.com/al-ventures/telpo-flutter-sdk/graphs/contributors"> <img  src="https://github.com/mrjnlcn.png" height="100"> </a>
+
+
 ## 🙏 Credits
 
 @mrjnlcn: hardan nə alınıb?
@@ -27,10 +33,6 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 ## 🐞 Bugs/Requests
 
 If you encounter any problems please open an issue. If you feel the library is missing a feature, please raise a ticket on GitHub and we'll look into it. Pull requests are welcome.
-
-## 🤓 Contributors
-
-<a  href="https://github.com/al-ventures/telpo-flutter-sdk/graphs/contributors"> <img  src="https://github.com/kamranbekirovyz.png" height="100"> </a><a  href="https://github.com/al-ventures/telpo-flutter-sdk/graphs/contributors"> <img  src="https://github.com/mrjnlcn.png" height="100"> </a>
 
 ## 📃 License
 
