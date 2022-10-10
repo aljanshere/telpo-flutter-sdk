@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Telpo Status: $_telpoStatus\n'),
+          child: Text('Telpo Status: $_telpoStatus'),
         ),
       ),
     );
