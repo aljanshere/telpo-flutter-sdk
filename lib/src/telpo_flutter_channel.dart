@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/services.dart';
 import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
@@ -52,26 +54,35 @@ class TelpoFlutterChannel {
     return _platform.invokeMethod('isConnected');
   }
 
-  Future<bool?> print(List<PrintData> data) async {
+  /// Takes [List<PrintData>] to be printed and returns [PrintResult] enum as
+  /// an indicator for result of the process
+  ///
+  /// If [PrintResult.success] the data printed successfully, if else process
+  /// blocked by some exception. See the result enum for more info.
+  Future<PrintResult> print(List<PrintData> data) async {
     try {
-      return await _platform.invokeMethod(
+      await _platform.invokeMethod(
         'print',
         {
           "data": data.toJson(),
         },
       );
+
+      return PrintResult.success;
     } on PlatformException catch (e) {
       switch (e.code) {
         case '3':
-          throw NoPaperException();
+          return PrintResult.noPaper;
         case '4':
-          throw LowBatteryException();
+          return PrintResult.lowBattery;
         case '12':
-          throw OverHeatException();
+          return PrintResult.overHeat;
         case '13':
-          throw DeviceTransmitDataException();
+          return PrintResult.dataCanNotBeTransmitted;
         default:
-          throw UnknownTelpoException(e);
+          log('TELPO EXCEPTION: $e, code: ${e.code}');
+
+          return PrintResult.other;
       }
     }
   }
