@@ -21,4 +21,4 @@ flutter:
     platforms:
       android:
         package: me.aljan.telpo_flutter_sdk
-        pluginClass: TelpoSdkFlutterPlugin
+        pluginClass: TelpoFlutterSdkPlugin

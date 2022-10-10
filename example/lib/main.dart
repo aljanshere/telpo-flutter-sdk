@@ -31,7 +31,9 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      telpoStatus = await _telpoSdkFlutterPlugin.checkStatus() ?? 'Unknown status';
+      final status = await _telpoSdkFlutterPlugin.checkStatus();
+
+      telpoStatus = status.name;
     } on PlatformException {
       telpoStatus = 'Failed to get status.';
     }
