@@ -52,12 +52,27 @@ class TelpoFlutterChannel {
     return _platform.invokeMethod('isConnected');
   }
 
-  Future<bool?> print(List<PrintData> data) {
-    return _platform.invokeMethod(
-      'print',
-      {
-        "data": data.toJson(),
-      },
-    );
+  Future<bool?> print(List<PrintData> data) async {
+    try {
+      return await _platform.invokeMethod(
+        'print',
+        {
+          "data": data.toJson(),
+        },
+      );
+    } on PlatformException catch (e) {
+      switch (e.code) {
+        case '3':
+          throw NoPaperException();
+        case '4':
+          throw LowBatteryException();
+        case '12':
+          throw OverHeatException();
+        case '13':
+          throw DeviceTransmitDataException();
+        default:
+          throw UnknownTelpoException(e);
+      }
+    }
   }
 }

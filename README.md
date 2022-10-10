@@ -1,4 +1,3 @@
-
 # telpo_flutter_sdk
 
 A Flutter plugin for handling connection and communication with Telpo thermal printer devices.
@@ -10,6 +9,25 @@ A Flutter plugin for handling connection and communication with Telpo thermal pr
 
 While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter
 
+## ⚙️ Gradle Setup
+Make sure you add the ```maven { url "https://jitpack.io" }``` in your ```android/build.gradle``` file:
+```gradle
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+Change the minimum Android sdk version to 19 in your ```android/app/build.gradle``` file.
+
+```gradle
+android {
+    defaultConfig {
+        minSdkVersion 19
+    }
+}
+```
  
 ## 🕹️ Usage
 
@@ -19,6 +37,10 @@ To get started, create a `TelpoFlutterChannel`:
 final _telpoFlutterChannel =  TelpoFlutterChannel();
 ```
 
+## 📝 TODO
+- Print Image
+- Print QRCode
+- Print NFC Data
 
 ## 🤓 Contributors
 
@@ -27,8 +49,7 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ## 🙏 Credits
 
-@mrjnlcn: hardan nə alınıb?
-
+[Efikas](https://github.com/efikas/flutter_telpo) qardaşdan bəzi kodlar
 
 ## 🐞 Bugs/Requests
 
@@ -36,4 +57,4 @@ If you encounter any problems please open an issue. If you feel the library is m
 
 ## 📃 License
 
-MIT License
+[MIT License](https://github.com/AL-ventures/telpo-flutter-sdk/blob/master/LICENSE)

@@ -6,3 +6,4 @@ export 'src/models/print_text.dart';
 export 'src/models/walk_paper.dart';
 export 'src/utilities/enums.dart';
 export 'src/utilities/extensions.dart';
+export 'src/utilities/exceptions.dart';
