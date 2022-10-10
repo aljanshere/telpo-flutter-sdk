@@ -29,3 +29,13 @@ enum TelpoStatus {
   cacheIsFull,
   unknown,
 }
+
+// TODO: describe each status
+enum PrintResult {
+  success,
+  noPaper,
+  lowBattery,
+  overHeat,
+  dataCanNotBeTransmitted,
+  other,
+}
