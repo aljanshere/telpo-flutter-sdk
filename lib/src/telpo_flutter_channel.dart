@@ -52,9 +52,9 @@ class TelpoFlutterChannel {
     return _platform.invokeMethod('isConnected');
   }
 
-  Future<bool?> print(List<PrintData> data) {
+  Future<bool?> print(List<PrintData> data) async {
     try {
-      return _platform.invokeMethod(
+      return await _platform.invokeMethod(
         'print',
         {
           "data": data.toJson(),
