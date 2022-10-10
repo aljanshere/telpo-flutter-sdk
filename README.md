@@ -7,10 +7,11 @@ A Flutter plugin for handling connection and communication with Telpo thermal pr
 
 ## 💡 Motivation
 
-While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter
+[While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter...]
 
-## ⚙️ Gradle Setup
-Make sure you add the ```maven { url "https://jitpack.io" }``` in your ```android/build.gradle``` file:
+## ⚙️ Android setup
+1. Add the ```maven { url "https://jitpack.io" }``` to project level `build.gradle` (`android/build.gradle`).
+
 ```gradle
 allprojects {
     repositories {
@@ -19,28 +20,33 @@ allprojects {
 }
 ```
 
-Change the minimum Android sdk version to 19 in your ```android/app/build.gradle``` file.
+2. Set the `minSdkVersion` as 19 in application level `build.gradle` file (`android/app/build.gradle`).
 
 ```gradle
 android {
     defaultConfig {
+        ...
         minSdkVersion 19
+        ...
     }
 }
 ```
  
 ## 🕹️ Usage
 
-To get started, create a `TelpoFlutterChannel`:
+To get started, create an instance of `TelpoFlutterChannel`:
 
 ```dart
 final _telpoFlutterChannel =  TelpoFlutterChannel();
 ```
 
-## 📝 TODO
-- Print Image
-- Print QRCode
-- Print NFC Data
+## 📝 Roadmap
+
+✅ Well-written documentation 🤓
+✅ Document the platform-specific configurations.
+✅ Document the platform-specific configurations.
+⏳ Print image file. 
+⏳ Toggle printing event via NFC. 🤩
 
 ## 🤓 Contributors
 
