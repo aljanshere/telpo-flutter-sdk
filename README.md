@@ -55,7 +55,7 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ## 🙏 Credits
 
-[Efikas](https://github.com/efikas/flutter_telpo) qardaşdan bəzi kodlar
+While we were trying to understand and port the Telpo device to the Flutter framework we got very inspiring code samples and examples from [Efikas](https://github.com/efikas)'s plugin ([flutter_telpo](https://pub.dev/packages/flutter_telpo)) for Flutter which can be considered as basic version of our plugin and out plugin can be considered as more customized of his since both of us used the same native implementation of Telpo's Android SDKs which comes together with Telpo device.
 
 ## 🐞 Bugs/Requests
 
