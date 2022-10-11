@@ -2,7 +2,7 @@
 
 A Flutter plugin for handling connection and communication with Telpo thermal printer devices.
 
-<img  src="https://raw.githubusercontent.com/AL-ventures/telpo-flutter-sdk/master/_external/cover.png"  alt="cover" />
+<img  src="https://raw.githubusercontent.com/AL-ventures/telpo-flutter-sdk/master/.docs/cover.png"  alt="cover" />
 
 
 ## 💡 Motivation
@@ -44,9 +44,10 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ✅ Well-written documentation 🤓<br/>
 ✅ Document the platform-specific configurations.<br/>
-✅ Document the platform-specific configurations.<br/>
-⏳ Print image file. <br/>
-⏳ Toggle printing event via NFC. 🤩<br/>
+⏳ Add explanations for [Enum] values of [PrintResult] and [TelpoStatus]. (@kamranbekirovyz)<br/>
+⏳ Print image file. (@mrjnlcn)<br/>
+⏳ Toggle printing event via NFC. 🤩 (@mrjnlcn)<br/>
+⏳ Toggle printing event via BlueTooth, may be? (@mrjnlcn)<br/>
 
 ## 🤓 Contributors
 
