@@ -44,9 +44,10 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ✅ Well-written documentation 🤓<br/>
 ✅ Document the platform-specific configurations.<br/>
-✅ Document the platform-specific configurations.<br/>
-⏳ Print image file. <br/>
-⏳ Toggle printing event via NFC. 🤩<br/>
+⏳ Add explanations for [Enum] values of [PrintResult] and [TelpoStatus]. (@kamranbekirovyz)<br/>
+⏳ Print image file. (@mrjnlcn)<br/>
+⏳ Toggle printing event via NFC. 🤩 (@mrjnlcn)<br/>
+⏳ Toggle printing event via BlueTooth, may be? (@mrjnlcn)<br/>
 
 ## 🤓 Contributors
 
