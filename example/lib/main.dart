@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -26,11 +24,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    checkStatus();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
+  Future<void> checkStatus() async {
     String telpoStatus;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
@@ -70,7 +68,7 @@ class _MyAppState extends State<MyApp> {
     try {
       await _telpoSdkFlutterPlugin.print(printableData);
     } catch (e) {
-      log(e.toString());
+      print(e);
     }
 
     setState(() {

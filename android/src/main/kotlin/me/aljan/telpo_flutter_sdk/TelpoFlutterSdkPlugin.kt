@@ -42,8 +42,6 @@ class TelpoFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
 
         when (call.method) {
             "connect" -> {
-                Log.e(TAG, _isConnected.toString())
-
                 if (!_isConnected) {
 
                     val pIntentFilter = IntentFilter()
@@ -54,6 +52,7 @@ class TelpoFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     val isConnected = telpoThermalPrinter.connect()
                     _isConnected = isConnected
 
+                    Log.d(TAG, "connected")
                     resultWrapper.success(_isConnected)
                 }
             }
@@ -66,6 +65,7 @@ class TelpoFlutterSdkPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             "disconnect" -> {
                 if (_isConnected) {
                     Log.d(TAG, "disconnected")
+
                     context.unregisterReceiver(printReceive)
                     val disconnected = telpoThermalPrinter.disconnect()
                     _isConnected = false
