@@ -10,12 +10,14 @@ A Flutter plugin for handling connection and communication with Telpo thermal pr
 [While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter...]
 
 ## ⚙️ Android setup
-1. Add the ```maven { url "https://jitpack.io" }``` to project level `build.gradle` file (`android/build.gradle`).
+1. Add ```url "https://jitpack.io"``` for `maven` to project level `build.gradle` file (`android/build.gradle`).
 
 ```gradle
 allprojects {
     repositories {
+        ...
         maven { url "https://jitpack.io" }
+        ...
     }
 }
 ```
@@ -44,9 +46,9 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ✅ Well-written documentation 🤓<br/>
 ✅ Document the platform-specific configurations.<br/>
-⏳ Add explanations for [Enum] values of [PrintResult] and [TelpoStatus]. (@kamranbekirovyz)<br/>
-⏳ Print image file. (@mrjnlcn)<br/>
-⏳ Toggle printing event via NFC. 🤩 (@mrjnlcn)<br/>
+⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`. (@kamranbekirovyz)<br/>
+⏳ Print image file.<br/>
+⏳ Toggle printing event via NFC. 🤩<br/>
 ⏳ Toggle printing event via BlueTooth, may be? (@mrjnlcn)<br/>
 
 ## 🤓 Contributors
@@ -56,7 +58,7 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ## 🙏 Credits
 
-While we were trying to understand and port the Telpo device to the Flutter framework we got very inspiring code samples and examples from [Efikas](https://github.com/efikas)'s plugin ([flutter_telpo](https://pub.dev/packages/flutter_telpo)) for Flutter which can be considered as basic version of our plugin and out plugin can be considered as more customized of his since both of us used the same native implementation of Telpo's Android SDKs which comes together with Telpo device.
+While we were trying to understand and port the Telpo device to the Flutter framework we got very inspiring code samples and examples from [Efikas](https://github.com/efikas)'s plugin ([flutter_telpo](https://pub.dev/packages/flutter_telpo)) for Flutter which can be considered as a basic version of our plugin and our plugin can be considered as more customized of his since both of us used the same native implementation of the Telpo's Android SDK which comes together with the Telpo device.
 
 ## 🐞 Bugs/Requests
 
