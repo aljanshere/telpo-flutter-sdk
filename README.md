@@ -7,7 +7,7 @@ A Flutter plugin for handling connection and communication with Telpo thermal pr
 
 ## 💡 Motivation
 
-[While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter...]
+While developing <a href="https://mashin.al">MASHINPAY</a> payment solution we've purchased Telpo thermal printers ("M1"s specifically) for printing invoice files after users' successful transaction. The Telpo devices come with a native SDK and documentation for it. Since there wasn't an official plugin for Flutter, we had to customize the plugin by ourselves. We've added so many useful methods for better handling exceptions, customizable print layout and etc.
 
 ## ⚙️ Android setup
 1. Add ```url "https://jitpack.io"``` for `maven` to project level `build.gradle` file (`android/build.gradle`).
@@ -46,10 +46,10 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ✅ Well-written documentation 🤓<br/>
 ✅ Document the platform-specific configurations.<br/>
-⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`. (@kamranbekirovyz)<br/>
+⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.<br/>
 ⏳ Print image file.<br/>
 ⏳ Toggle printing event via NFC. 🤩<br/>
-⏳ Toggle printing event via BlueTooth, may be? (@mrjnlcn)<br/>
+⏳ Toggle printing event via BlueTooth, may be?<br/>
 
 ## 🤓 Contributors
 
