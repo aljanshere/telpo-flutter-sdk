@@ -47,9 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       _connected = connected;
 
-      if (!_connected) {
-        _telpoStatus = 'Telpo not supported';
-      }
+      _telpoStatus = _connected ? 'Connected' : 'Telpo not supported';
     });
   }
 
@@ -150,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'Check status',
                 ),
               ),
-              if (_telpoStatus == TelpoStatus.ok.name) ...[
+              if ([PrintResult.success.name, TelpoStatus.ok.name].contains(_telpoStatus)) ...[
                 const SizedBox(height: 24.0),
                 CupertinoButton(
                   color: telpoColor,
