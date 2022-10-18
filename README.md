@@ -34,12 +34,57 @@ android {
 }
 ```
  
+
+
 ## 🕹️ Usage
+
+### Initialization
 
 To get started, create an instance of `TelpoFlutterChannel`:
 
 ```dart
-final _telpoFlutterChannel =  TelpoFlutterChannel();
+final _telpoFlutterChannel = TelpoFlutterChannel();
+```
+
+
+Connecting with Telpo:
+```dart
+final bool connected = await _telpoFlutterChannel.connect();
+```
+
+Checking Telpo's status:
+```dart
+final TelpoStatus status = await _telpoFlutterChannel.checkStatus();
+```
+
+Checking connection status with Telpo:
+```dart
+final bool status = await _telpoFlutterChannel.isConnected();
+```
+
+Printing a sheet:
+
+```dart
+// Creating an empty sheet
+final sheet = <PrintData>[];
+
+// Creating a text element
+const textData = PrintText(
+	text: 'TelpoFlutterSdk',
+	alignment: PrintAlignment.center,
+	fontSize: PrintedFontSize.size34,
+);
+
+// Creating 8-line empty space
+const spacing = WalkPaper(step: 8);
+
+// Inserting previously created text element to the sheet.
+sheet.add(textData);
+
+// Inserting previously created spacing element to the sheet.
+sheet.add(spacing);
+
+final PrintResult result = await _telpoFlutterChannel.print(sheet);
 ```
 
 ## 📝 Roadmap
@@ -50,6 +95,8 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 ⏳ Print image file.<br/>
 ⏳ Toggle printing event via NFC. 🤩<br/>
 ⏳ Toggle printing event via BlueTooth, may be?<br/>
+⏳ Checking if Telpo is available on the device?<br/>
+
 
 ## 🤓 Contributors
 
