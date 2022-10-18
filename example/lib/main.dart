@@ -1,104 +1,167 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:telpo_flutter_sdk/telpo_flutter_sdk.dart';
 
+const telpoColor = Color(0xff005AFF);
+
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  String _telpoStatus = 'Unknown';
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool _connected = false;
+  String _telpoStatus = 'Not initialized';
   bool _isLoading = false;
 
-  final TelpoFlutterChannel _telpoSdkFlutterPlugin = TelpoFlutterChannel();
-
-  @override
-  void initState() {
-    super.initState();
-    checkStatus();
-  }
+  final _telpoFlutterChannel = TelpoFlutterChannel();
 
   // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> checkStatus() async {
-    String telpoStatus;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      final status = await _telpoSdkFlutterPlugin.checkStatus();
+  Future<void> _connect() async {
+    // Platform calls are catched on plugin-side. No need to use try-catch here,
+    // as connect() method returns non-nullable boolean.
 
-      telpoStatus = status.name;
-    } on PlatformException {
-      telpoStatus = 'Failed to get status.';
-    }
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
+    final bool connected = await _telpoFlutterChannel.connect();
 
     setState(() {
-      _telpoStatus = telpoStatus;
+      _connected = connected;
+
+      if (!_connected) {
+        _telpoStatus = 'Telpo not supported';
+      }
     });
   }
 
-  Future<void> printData() async {
-    setState(() {
-      _isLoading = true;
-    });
+  Future<void> _checkStatus() async {
+    String telpoStatus;
 
-    final printableData = <PrintData>[];
+    final TelpoStatus status = await _telpoFlutterChannel.checkStatus();
+    telpoStatus = status.name;
 
-    const data = PrintText(
-      text: 'TelpoFlutterPlugin',
+    setState(() => _telpoStatus = telpoStatus);
+  }
+
+  Future<void> _printData() async {
+    setState(() => _isLoading = true);
+
+    // Creating an empty sheet
+    final sheet = <PrintData>[];
+
+    // Creating a text element
+    const textData = PrintText(
+      text: 'TelpoFlutterSdk',
       alignment: PrintAlignment.center,
       fontSize: PrintedFontSize.size34,
     );
 
-    printableData.add(data);
-    printableData.add(const WalkPaper(step: 8));
+    // Creating 8-line empty space
+    const spacing = WalkPaper(step: 8);
 
-    try {
-      await _telpoSdkFlutterPlugin.print(printableData);
-    } catch (e) {
-      print(e);
-    }
+    // Inserting previously created text element to the sheet.
+    sheet.add(textData);
+    // Inserting previously created spacing element to the sheet.
+    sheet.add(spacing);
+
+    final PrintResult result = await _telpoFlutterChannel.print(sheet);
 
     setState(() {
+      _telpoStatus = result.name;
       _isLoading = false;
     });
   }
 
   @override
+  void setState(VoidCallback fn) {
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+    if (mounted) {
+      super.setState(fn);
+    }
+  }
+
+  @override
+  void dispose() {
+    _telpoFlutterChannel.disconnect();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Telpo Status: $_telpoStatus'),
-              const SizedBox(height: 12.0),
-              ElevatedButton(
-                onPressed: _isLoading
-                    ? null
-                    : () async {
-                        await printData();
-                      },
-                child: Text(_isLoading ? 'Printing' : 'Print'),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        backgroundColor: const Color(0xffFF8D49),
+        title: const Text('Telpo plugin example'),
+        actions: [
+          if (_isLoading)
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(right: 16.0),
+              child: const CircularProgressIndicator(
+                color: Colors.white,
               ),
+            )
+        ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Telpo status: $_telpoStatus',
+              style: const TextStyle(fontSize: 16.0),
+            ),
+            const SizedBox(height: 32.0),
+            CupertinoButton(
+              color: telpoColor,
+              onPressed: _isLoading ? null : _connect,
+              child: const Text('Initialize'),
+            ),
+            if (_connected) ...[
+              const SizedBox(height: 24.0),
+              CupertinoButton(
+                color: telpoColor,
+                onPressed: _isLoading ? null : _checkStatus,
+                child: const Text(
+                  'Check status',
+                ),
+              ),
+              if (_telpoStatus == TelpoStatus.ok.name) ...[
+                const SizedBox(height: 24.0),
+                CupertinoButton(
+                  color: telpoColor,
+                  onPressed: _isLoading ? null : _printData,
+                  child: Text(
+                    _isLoading ? 'Printing' : 'Print',
+                  ),
+                ),
+              ]
             ],
-          ),
+          ],
         ),
       ),
     );

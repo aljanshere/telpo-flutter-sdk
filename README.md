@@ -7,15 +7,17 @@ A Flutter plugin for handling connection and communication with Telpo thermal pr
 
 ## 💡 Motivation
 
-[While we were working on our MASHINPAY solution we purchased Telpo thermal printers (M1s specifically) for our purpose, where after the user makes payment there was a need to print an invoice file. The Telpo devices come with a native SDK and documentation for it. Since there was not an official and customizable implementation of Telpo SDK for Flutter...]
+While developing <a href="https://mashin.al">MASHINPAY</a> payment solution we've purchased Telpo thermal printers ("M1"s specifically) for printing invoice files after users' successful transaction. The Telpo devices come with a native SDK and documentation for it. Since there wasn't an official plugin for Flutter, we had to customize the plugin by ourselves. We've added so many useful methods for better handling exceptions, customizable print layout and etc.
 
 ## ⚙️ Android setup
-1. Add the ```maven { url "https://jitpack.io" }``` to project level `build.gradle` file (`android/build.gradle`).
+1. Add ```url "https://jitpack.io"``` for `maven` to project level `build.gradle` file (`android/build.gradle`).
 
 ```gradle
 allprojects {
     repositories {
+        ...
         maven { url "https://jitpack.io" }
+        ...
     }
 }
 ```
@@ -32,22 +34,69 @@ android {
 }
 ```
  
+
+
 ## 🕹️ Usage
+
+### Initialization
 
 To get started, create an instance of `TelpoFlutterChannel`:
 
 ```dart
-final _telpoFlutterChannel =  TelpoFlutterChannel();
+final _telpoFlutterChannel = TelpoFlutterChannel();
+```
+
+
+Connecting with Telpo:
+```dart
+final bool connected = await _telpoFlutterChannel.connect();
+```
+
+Checking Telpo's status:
+```dart
+final TelpoStatus status = await _telpoFlutterChannel.checkStatus();
+```
+
+Checking connection status with Telpo:
+```dart
+final bool status = await _telpoFlutterChannel.isConnected();
+```
+
+Printing a sheet:
+
+```dart
+// Creating an empty sheet
+final sheet = <PrintData>[];
+
+// Creating a text element
+const textData = PrintText(
+  text: 'TelpoFlutterSdk',
+  alignment: PrintAlignment.center,
+  fontSize: PrintedFontSize.size34,
+);
+
+// Creating 8-line empty space
+const spacing = WalkPaper(step: 8);
+
+// Inserting previously created text element to the sheet.
+sheet.add(textData);
+
+// Inserting previously created spacing element to the sheet.
+sheet.add(spacing);
+
+final PrintResult result = await _telpoFlutterChannel.print(sheet);
 ```
 
 ## 📝 Roadmap
 
 ✅ Well-written documentation 🤓<br/>
 ✅ Document the platform-specific configurations.<br/>
-⏳ Add explanations for [Enum] values of [PrintResult] and [TelpoStatus]. (@kamranbekirovyz)<br/>
-⏳ Print image file. (@mrjnlcn)<br/>
-⏳ Toggle printing event via NFC. 🤩 (@mrjnlcn)<br/>
-⏳ Toggle printing event via BlueTooth, may be? (@mrjnlcn)<br/>
+⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.<br/>
+⏳ Print image file.<br/>
+⏳ Toggle printing event via NFC. 🤩<br/>
+⏳ Toggle printing event via BlueTooth, may be?<br/>
+⏳ Checking if Telpo is available on the device?<br/>
+
 
 ## 🤓 Contributors
 
@@ -56,7 +105,7 @@ final _telpoFlutterChannel =  TelpoFlutterChannel();
 
 ## 🙏 Credits
 
-While we were trying to understand and port the Telpo device to the Flutter framework we got very inspiring code samples and examples from [Efikas](https://github.com/efikas)'s plugin ([flutter_telpo](https://pub.dev/packages/flutter_telpo)) for Flutter which can be considered as basic version of our plugin and out plugin can be considered as more customized of his since both of us used the same native implementation of Telpo's Android SDKs which comes together with Telpo device.
+While we were trying to understand and port the Telpo device to the Flutter framework we got very inspiring code samples and examples from [Efikas](https://github.com/efikas)'s plugin ([flutter_telpo](https://pub.dev/packages/flutter_telpo)) for Flutter which can be considered as a basic version of our plugin and our plugin can be considered as more customized of his since both of us used the same native implementation of the Telpo's Android SDK which comes together with the Telpo device.
 
 ## 🐞 Bugs/Requests
 

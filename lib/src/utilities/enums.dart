@@ -31,6 +31,7 @@ enum TelpoStatus {
 }
 
 // TODO: describe each status
+// TODO: add exception reason to other
 enum PrintResult {
   success,
   noPaper,
