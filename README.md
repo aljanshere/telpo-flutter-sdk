@@ -70,9 +70,9 @@ final sheet = <PrintData>[];
 
 // Creating a text element
 const textData = PrintText(
-	text: 'TelpoFlutterSdk',
-	alignment: PrintAlignment.center,
-	fontSize: PrintedFontSize.size34,
+  text: 'TelpoFlutterSdk',
+  alignment: PrintAlignment.center,
+  fontSize: PrintedFontSize.size34,
 );
 
 // Creating 8-line empty space
