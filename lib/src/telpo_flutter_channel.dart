@@ -37,21 +37,45 @@ class TelpoFlutterChannel {
 
   /// Connect with underlying Telpo device if any.
   ///
-  /// Returns a nullable [bool] whether connected successfully or not.
-  Future<bool?> connect() {
-    return _platform.invokeMethod('connect');
+  /// Returns a [bool] whether connected successfully or not.
+  Future<bool> connect() async {
+    try {
+      final connected = await _platform.invokeMethod('connect');
+
+      return connected ?? false;
+    } catch (e) {
+      log('TELPO EXCEPTION: $e');
+
+      return false;
+    }
   }
 
   /// Disconnect from Telpo device.
   ///
-  /// Returns a nullable [bool] whether disconnected successfully or not.
-  Future<bool?> disconnect() {
-    return _platform.invokeMethod('disconnect');
+  /// Returns a [bool] whether disconnected successfully or not.
+  Future<bool> disconnect() async {
+    try {
+      final disconnected = await _platform.invokeMethod('disconnect');
+
+      return disconnected ?? false;
+    } catch (e) {
+      log('TELPO EXCEPTION: $e');
+
+      return false;
+    }
   }
 
   /// Returns a nullable [bool] whether or not connected with Telpo device.
-  Future<bool?> isConnected() {
-    return _platform.invokeMethod('isConnected');
+  Future<bool?> isConnected() async {
+    try {
+      final isConnected = await _platform.invokeMethod('isConnected');
+
+      return isConnected ?? false;
+    } catch (e) {
+      log('TELPO EXCEPTION: $e');
+
+      return false;
+    }
   }
 
   /// Takes [List<PrintData>] to be printed and returns [PrintResult] enum as
