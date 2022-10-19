@@ -67,14 +67,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final sheet = <PrintData>[];
 
     // Creating a text element
-    const textData = PrintText(
-      text: 'TelpoFlutterSdk',
+    final textData = PrintData.text(
+      'TelpoFlutterSdk',
       alignment: PrintAlignment.center,
       fontSize: PrintedFontSize.size34,
     );
 
     // Creating 8-line empty space
-    const spacing = WalkPaper(step: 8);
+    final spacing = PrintData.space(line: 8);
 
     // Inserting previously created text element to the sheet.
     sheet.add(textData);

@@ -1,8 +1,6 @@
 enum PrintType {
   byte,
   text,
-  pdf,
-  qr,
   walkPaper,
 }
 
