@@ -50,16 +50,19 @@ final _telpoFlutterChannel = TelpoFlutterChannel();
 Connecting with Telpo:
 ```dart
 final bool connected = await _telpoFlutterChannel.connect();
+// Result: true, false.
 ```
 
 Checking Telpo's status:
 ```dart
 final TelpoStatus status = await _telpoFlutterChannel.checkStatus();
+// Result: ok, noPaper, overHeat, cacheIsFull, unknown.
 ```
 
 Checking connection status with Telpo:
 ```dart
 final bool status = await _telpoFlutterChannel.isConnected();
+// Result: true, false.
 ```
 
 Printing a sheet:
@@ -76,7 +79,7 @@ const textData = PrintText(
 );
 
 // Creating 8-line empty space
-const spacing = WalkPaper(step: 8);
+const spacing = PrintData.space(step: 8);
 
 // Inserting previously created text element to the sheet.
 sheet.add(textData);
@@ -85,17 +88,18 @@ sheet.add(textData);
 sheet.add(spacing);
 
 final PrintResult result = await _telpoFlutterChannel.print(sheet);
+// Result: success, noPaper, lowBattery, overHeat, dataCanNotBeTransmitted, other.
 ```
 
 ## 📝 Roadmap
 
-✅ Well-written documentation 🤓<br/>
-✅ Document the platform-specific configurations.<br/>
-⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.<br/>
-⏳ Print image file.<br/>
-⏳ Toggle printing event via NFC. 🤩<br/>
-⏳ Toggle printing event via BlueTooth, may be?<br/>
-⏳ Checking if Telpo is available on the device?<br/>
+✅ Well-written documentation 🤓
+✅ Document the platform-specific configurations.
+⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.
+⏳ Print image file.
+⏳ Toggle printing event via NFC. 🤩
+⏳ Toggle printing event via BlueTooth, may be?
+⏳ Checking if Telpo is available on the device?
 
 
 ## 🤓 Contributors
