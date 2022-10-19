@@ -83,12 +83,12 @@ class TelpoFlutterChannel {
   ///
   /// If [PrintResult.success] the data printed successfully, if else process
   /// blocked by some exception. See the result enum for more info.
-  Future<PrintResult> print(List<PrintData> data) async {
+  Future<PrintResult> print(TelpoPrintSheet data) async {
     try {
       await _platform.invokeMethod(
         'print',
         {
-          "data": data.toJson(),
+          "data": data.asJson,
         },
       );
 
