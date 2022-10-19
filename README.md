@@ -69,7 +69,7 @@ Printing a sheet:
 
 ```dart
 // Creating an empty sheet
-final sheet = <PrintData>[];
+final sheet = TelpoPrintSheet();
 
 // Creating a text element
 const textData = PrintText(
@@ -82,10 +82,10 @@ const textData = PrintText(
 const spacing = PrintData.space(step: 8);
 
 // Inserting previously created text element to the sheet.
-sheet.add(textData);
+sheet.addElement(textData);
 
 // Inserting previously created spacing element to the sheet.
-sheet.add(spacing);
+sheet.addElement(spacing);
 
 final PrintResult result = await _telpoFlutterChannel.print(sheet);
 // Result: success, noPaper, lowBattery, overHeat, dataCanNotBeTransmitted, other.
