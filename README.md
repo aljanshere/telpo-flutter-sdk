@@ -72,8 +72,8 @@ Printing a sheet:
 final sheet = TelpoPrintSheet();
 
 // Creating a text element
-const textData = PrintText(
-  text: 'TelpoFlutterSdk',
+const textData = PrintData.text(
+  'TelpoFlutterSdk',
   alignment: PrintAlignment.center,
   fontSize: PrintedFontSize.size34,
 );
