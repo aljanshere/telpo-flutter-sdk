@@ -63,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _printData() async {
     setState(() => _isLoading = true);
 
-    // Creating an empty sheet
-    final sheet = <PrintData>[];
+    // Creating an [TelpoPrintSheet] instance.
+    final sheet = TelpoPrintSheet();
 
     // Creating a text element
     final textData = PrintData.text(
@@ -73,13 +73,14 @@ class _HomeScreenState extends State<HomeScreen> {
       fontSize: PrintedFontSize.size34,
     );
 
-    // Creating 8-line empty space
+    // Creating 8-line empty space element.
     final spacing = PrintData.space(line: 8);
 
     // Inserting previously created text element to the sheet.
-    sheet.add(textData);
+    sheet.addElement(textData);
+
     // Inserting previously created spacing element to the sheet.
-    sheet.add(spacing);
+    sheet.addElement(spacing);
 
     final PrintResult result = await _telpoFlutterChannel.print(sheet);
 
@@ -102,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
+    // Disconnecting from Telpo.
     _telpoFlutterChannel.disconnect();
     super.dispose();
   }
