@@ -93,13 +93,13 @@ final PrintResult result = await _telpoFlutterChannel.print(sheet);
 
 ## 📝 Roadmap
 
-✅ Well-written documentation 🤓
-✅ Document the platform-specific configurations.
-⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.
-⏳ Print image file.
-⏳ Toggle printing event via NFC. 🤩
-⏳ Toggle printing event via BlueTooth, may be?
-⏳ Checking if Telpo is available on the device?
+✅ Well-written documentation 🤓  
+✅ Document the platform-specific configurations.  
+⏳ Add explanations for `Enum` values of `PrintResult` and `TelpoStatus`.  
+⏳ Print image file.  
+⏳ Toggle printing event via NFC. 🤩  
+⏳ Toggle printing event via BlueTooth, may be?  
+⏳ Checking if Telpo is available on the device?  
 
 
 ## 🤓 Contributors
