@@ -79,7 +79,7 @@ const textData = PrintText(
 );
 
 // Creating 8-line empty space
-const spacing = WalkPaper(step: 8);
+const spacing = PrintData.space(step: 8);
 
 // Inserting previously created text element to the sheet.
 sheet.add(textData);
