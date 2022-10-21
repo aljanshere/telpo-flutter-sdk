@@ -1,4 +1,5 @@
 # telpo_flutter_sdk
+[![Pub Version](https://img.shields.io/pub/v/telpo_flutter_sdk?style=flat-square)](https://pub.dev/packages/telpo_flutter_sdk)
 
 A Flutter plugin for handling connection and communication with Telpo thermal printer devices.
 
