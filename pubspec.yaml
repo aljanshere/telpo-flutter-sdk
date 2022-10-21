@@ -1,6 +1,6 @@
 name: telpo_flutter_sdk
 description: A Flutter plugin for Telpo devices for handling connectivity and communication with the thermal printer.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/AL-ventures/telpo-flutter-sdk
 
 environment:
